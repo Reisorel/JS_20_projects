@@ -120,6 +120,6 @@ form button:hover {
   text-align: center;
 }
 
-mark.span {
+.mark span {
   font-weight: 700;
 }
