@@ -25,7 +25,8 @@ function handleSubmit(e) {
     }
   })
 
-  showResults(results)
+  showResults(results);
+  addColors(results);
 }
 
 const titleResult = document.querySelector('.results h2')
@@ -42,7 +43,7 @@ function showResults(results) {
       helpResult.style.display = "block";
       helpResult.textContent = "Grands moments et petites anecdotes n'ont aucun secret pour toi !";
       markResult.style.display = "block";
-      markResult.innerHTML = `Score : <span>${20-errorsNumber}/ 20</span>`;
+      markResult.innerHTML = `Score : <span>${20 - errorsNumber}/ 20</span>`;
       break;
     case 1:
     case 2:
@@ -53,7 +54,7 @@ function showResults(results) {
       helpResult.style.display = "block";
       helpResult.textContent = "Tu aimes la culture rock, mais il te manque encore quelques détails !";
       markResult.style.display = "block";
-      markResult.innerHTML = `Score : <span>${20-errorsNumber}/ 20</span>`;
+      markResult.innerHTML = `Score : <span>${20 - errorsNumber}/ 20</span>`;
       break;
     case 6:
     case 7:
@@ -64,7 +65,7 @@ function showResults(results) {
       helpResult.style.display = "block";
       helpResult.textContent = "La culture du rock ne t'es pas étrangère, mais il faut encore un peu bosser pour être au top !";
       markResult.style.display = "block";
-      markResult.innerHTML = `Score : <span>${20-errorsNumber}/ 20</span>`;
+      markResult.innerHTML = `Score : <span>${20 - errorsNumber}/ 20</span>`;
       break;
     case 11:
     case 12:
@@ -75,7 +76,7 @@ function showResults(results) {
       helpResult.style.display = "block";
       helpResult.textContent = "Il ne faut pas se décourager, tu peux t'améliorer sur le ROCK";
       markResult.style.display = "block";
-      markResult.innerHTML = `Score : <span>${20-errorsNumber}/ 20</span>`;
+      markResult.innerHTML = `Score : <span>${20 - errorsNumber}/ 20</span>`;
       break;
     default:
       titleResult.textContent = `❌ Besoin de réviser tes connaissances sur le ROCK ! ❌`;
@@ -84,7 +85,28 @@ function showResults(results) {
       markResult.style.display = "block";
       markResult.innerHTML = `Score : <span>${20 - errorsNumber}/ 20</span>`;
       break;
-    }
   }
+}
 
-  console.log(markResult);
+const questions = document.querySelectorAll(".question-block");
+function addColors(results) {
+  results.forEach((response, index) => {
+    if (results[index]) {
+      questions[index].style.backgroundImage = "linear-gradient(to right, #a8ff78, #78ffd6)"
+    } else {
+      questions[index].style.backgroundImage = "linear-gradient(to right, #f5567b, #fd674c)"
+    }
+  })
+}
+
+const radioInputs = document.querySelectorAll("input[type='radio']")
+
+radioInputs.forEach(radioInput => radioInput.addEventListener('input', resetColor))
+
+function resetColor(e) {
+  const index = e.target.getAttribute("name").slice(1) -1;
+  const parentQuestionBlock = questions[index];
+
+  parentQuestionBlock.style.backgroundColor = "#f1f1f1";
+  parentQuestionBlock.style.backgroundImage = "none";
+}
