@@ -27,6 +27,16 @@ h1 span {
   font-weight: 800;
 }
 
+h2 {
+  font-family: Roboto, sans-serif;
+  font-size: px;
+  margin-bottom: 40px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #0e0e0e;
+}
+
 .global-container {
   max-width: 800px;
   margin: 0 auto;
@@ -122,4 +132,50 @@ form button:hover {
 
 .mark span {
   font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .global-container {
+    max-width: 100%;
+    margin: 0 auto; /* Centrer le conteneur */
+  }
+
+  h1 {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+
+  h2 {
+    font-size: 15px;
+    margin-bottom: 30px;
+  }
+
+  .question-block {
+    padding: 25px;
+    margin: 15px auto;
+    max-width: 100%;
+  }
+
+  .question-block h4 {
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+
+  .question-block label {
+    font-size: 15px;
+  }
+
+  form button {
+    padding: 10px 5px;
+    font-size: 18px;
+    min-width: 150px;
+  }
+
+  .results h2 {
+    font-size: 20px;
+  }
+
+  .help, .mark {
+    font-size: 18px;
+  }
 }
