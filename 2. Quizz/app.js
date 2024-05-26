@@ -39,7 +39,6 @@ backButton.addEventListener('click', () => {
   location.reload();
 });
 
-
 function showResults(results) {
   const errorsNumber = results.filter(el => el === false).length;
 
@@ -50,6 +49,8 @@ function showResults(results) {
       helpResult.textContent = "Grands moments et petites anecdotes n'ont aucun secret pour toi !";
       markResult.style.display = "block";
       markResult.innerHTML = `Score : <span>${20 - errorsNumber}/ 20</span>`;
+      backButton.style.display = "block"
+      backButton.textContent = "Recommencer 🔄"
       break;
     case 1:
     case 2:
@@ -61,6 +62,8 @@ function showResults(results) {
       helpResult.textContent = "Tu aimes la culture rock, mais il te manque encore quelques détails !";
       markResult.style.display = "block";
       markResult.innerHTML = `Score : <span>${20 - errorsNumber}/ 20</span>`;
+      backButton.style.display = "block"
+      backButton.textContent = "Recommencer 🔄"
       break;
     case 6:
     case 7:
@@ -85,6 +88,8 @@ function showResults(results) {
       helpResult.textContent = "Il ne faut pas se décourager, tu peux t'améliorer sur le ROCK";
       markResult.style.display = "block";
       markResult.innerHTML = `Score : <span>${20 - errorsNumber}/ 20</span>`;
+      backButton.style.display = "block"
+      backButton.textContent = "Recommencer 🔄"
       break;
     default:
       titleResult.textContent = `❌ Besoin de réviser tes connaissances sur le ROCK ! ❌`;
@@ -92,6 +97,8 @@ function showResults(results) {
       helpResult.textContent = "Il semble que tu aies besoin de revoir certains aspects du rock.";
       markResult.style.display = "block";
       markResult.innerHTML = `Score : <span>${20 - errorsNumber}/ 20</span>`;
+      backButton.style.display = "block"
+      backButton.textContent = "Recommencer 🔄"
       break;
   }
 }
