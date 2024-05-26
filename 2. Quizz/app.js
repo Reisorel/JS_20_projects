@@ -32,11 +32,17 @@ function handleSubmit(e) {
 const titleResult = document.querySelector('.results h2')
 const markResult = document.querySelector('.mark')
 const helpResult = document.querySelector('.help')
+const backButton = document.querySelector('.back')
+
+backButton.addEventListener('click', () => {
+  window.scrollTo(0, 0);
+  location.reload();
+});
+
 
 function showResults(results) {
   const errorsNumber = results.filter(el => el === false).length;
 
-  console.log(errorsNumber);
   switch (errorsNumber) {
     case 0:
       titleResult.textContent = `🏆 Bravo, tu es un spécialiste du ROCK ! 🏆`;
@@ -66,6 +72,8 @@ function showResults(results) {
       helpResult.textContent = "La culture du rock ne t'es pas étrangère, mais il faut encore un peu bosser pour être au top !";
       markResult.style.display = "block";
       markResult.innerHTML = `Score : <span>${20 - errorsNumber}/ 20</span>`;
+      backButton.style.display = "block"
+      backButton.textContent = "Recommencer 🔄"
       break;
     case 11:
     case 12:
