@@ -71,6 +71,47 @@ form button {
   text-align: center;
 }
 
+.cookies-list {
+  font-size: 48px;
+  list-style-type: none;
+  margin: 10px auto;
+  padding: 5px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+}
+
+.cookies-list li {
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 5px;
+  background: #fff;
+  position: relative;
+  box-shadow: 0 5px 10px rgba(0,0,0,002)
+}
+
+.cookies-list li p {
+  margin: 10px auto;
+}
+
+.cookies-list li span {
+  font-weight: 600px;
+}
+
+.cookies-list li button {
+  font-size: 17px;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border : none;
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  box-shadow: 0 5px 10px rgba(0,0,0,002);
+  background: crimson;
+  color: #f1f1f1f1;
+}
+
 .toasts-container {
   position: fixed;
   bottom: 20px;
