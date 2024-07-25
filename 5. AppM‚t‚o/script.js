@@ -1,17 +1,22 @@
 
 
-const loader = document.querySelector("loader-container");
+const loader = document.querySelector(".loader-container");
 const errorInformation = document.querySelector(".error-information");
 
 async function getWeatherData() {
   try {
-    const response = await fetch("http://api.airvisual.com/v2/nearest_city?key=1dc12d18-f1cb-4e9d-8ac3-f19f077ed0e1")
+    const response = await
+    fetch("http://api.airvisual.com/v2/nearest_city?key=1dc12d18-f1cb-4e9d-8ac3-f19f077ed0e1")
+
+    if (!response.ok) {
+      throw new Error(`Error${response.status}, ${response.statusText}`)
+    }
 
     const responseData = await response.json()
 
     const sortedData = {
       city: responseData.data.city,
-      Country: responseData.data.country,
+      country: responseData.data.country,
       iconId: responseData.data.current.weather.ic,
       temperature: responseData.data.current.weather.tp,
     }
@@ -20,7 +25,8 @@ async function getWeatherData() {
     populateUI(sortedData);
   }
   catch (error) {
-
+    loader.classList.remove("active");
+    errorInformation.textContent = error.message
   }
 }
 
@@ -37,5 +43,5 @@ function populateUI(data){
   temperature.textContent = `${data.temperature}°`;
   infoIcon.src = `ressources/icons/${data.iconId}.svg`;
   infoIcon.style.width = "150px";
-  loader.classList.remove("activbe");
+  loader.classList.remove("active");
 }
